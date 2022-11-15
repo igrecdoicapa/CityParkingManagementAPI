@@ -1,0 +1,105 @@
+POST	http://localhost:8080/api/city
+{
+	"id": "city1",
+	"name": "city1",
+	"code": "c1"
+}
+GET	http://localhost:8080/api/city/byId/city1
+GET	http://localhost:8080/api/city/byCode/c1
+GET	http://localhost:8080/api/city/all
+
+POST	http://localhost:8080/api/parkingFacilityCar
+{
+	"id": "pf1",
+	"name": "parkingFacility1",
+	"city": {
+		"id": "city1",
+		"name": "city1",
+		"code": "c1"
+	},
+	"capacity": 10,
+	"availableCapacity": 10
+}
+POST	http://localhost:8080/api/parkingFacilityBike
+{
+	"id": "pf2",
+	"name": "parkingFacility2",
+	"city": {
+		"id": "city1",
+		"name": "city1",
+		"code": "c1"
+	},
+	"capacity": 10,
+	"availableCapacity": 10
+}
+GET	http://localhost:8080/api/parkingFacility/pf1
+GET	http://localhost:8080/api/parkingFacility/all/city1
+
+
+POST	http://localhost:8080/api/vehicleCar/city1
+{
+	"id": "v1",
+	"city": {
+		"id": "city1",
+		"name": "city1",
+		"code": "c1"
+	},
+	"isParked": false,
+	"parkingFacilityId": null
+}
+POST	http://localhost:8080/api/vehicleBike/city1
+{
+	"id": "v2",
+	"city": {
+		"id": "city1",
+		"name": "city1",
+		"code": "c1"
+	},
+	"isParked": true,
+	"parkingFacilityId": null
+}
+GET	http://localhost:8080/api/vehicle/c1
+PUT	http://localhost:8080/api/vehicle/park
+{
+	"id": "v1",
+	"city": {
+		"id": "city1",
+		"name": "city1",
+		"code": "c1"
+	},
+	"isParked": true,
+	"parkingFacilityId": "pf1"
+}
+PUT http://localhost:8080/api/vehicle/park
+{
+	"id": "v2",
+	"city": {
+		"id": "city1",
+		"name": "city1",
+		"code": "c1"
+	},
+	"isParked": true,
+	"parkingFacilityId": "pf2"
+}
+PUT http://localhost:8080/api/vehicle/unpark
+{
+	"id": "v1",
+	"city": {
+		"id": "city1",
+		"name": "city1",
+		"code": "c1"
+	},
+	"isParked": false,
+	"parkingFacilityId": null
+}
+PUT http://localhost:8080/api/vehicle/unpark
+{
+	"id": "v2",
+	"city": {
+		"id": "city1",
+		"name": "city1",
+		"code": "c1"
+	},
+	"isParked": false,
+	"parkingFacilityId": null
+}
